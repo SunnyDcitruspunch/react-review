@@ -4,13 +4,18 @@ function ClickCounter() {
   const [count, setCount] = useState(0)
 
   const handleClick = () => {
-    setCount(count + 1)
+    setCount(prevCount => prevCount + 1)
+  }
+
+  const resetCount = () => {
+    setCount(0)
   }
 
   return (
     <div>
       <button type="button" onClick={handleClick}>Click me :)</button>
       <p>Clicked count: {count}</p>
+      <button type="button" onClick={resetCount}>Reset Count</button>
     </div>
   )
 }
